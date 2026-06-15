@@ -1,0 +1,128 @@
+/* platform/css/tools.css */
+
+/* SQL Playground Styles */
+.playground-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 150px);
+}
+
+.playground-editor {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+#sql-input {
+    width: 100%;
+    flex: 1;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    font-family: var(--font-code);
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+#sql-input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+.editor-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.playground-results {
+    flex: 1;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+}
+
+.results-table th, .results-table td {
+    border: 1px solid var(--border-light);
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.results-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--accent-primary);
+    position: sticky;
+    top: 0;
+}
+
+.sql-error {
+    color: var(--accent-danger);
+    background: rgba(239, 68, 68, 0.1);
+    padding: 16px;
+    border-left: 4px solid var(--accent-danger);
+    border-radius: 4px;
+    font-family: var(--font-code);
+}
+
+/* ER Builder Styles */
+.er-canvas {
+    width: 100%;
+    height: 600px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 2px dashed var(--border-light);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.er-entity {
+    position: absolute;
+    background: var(--bg-panel);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-sm);
+    min-width: 150px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    cursor: grab;
+    user-select: none;
+}
+
+.er-entity-header {
+    background: rgba(0, 240, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.er-entity-body {
+    padding: 10px;
+}
+
+.er-attribute {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+}
+
+.er-attribute.pk {
+    font-weight: 600;
+    color: var(--accent-warning);
+    text-decoration: underline;
+}
