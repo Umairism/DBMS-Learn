@@ -3,6 +3,21 @@
 function renderUserNormalizer() {
     const container = document.getElementById('app-content');
     
+    // Check if ER Builder exported a schema
+    let defaultAttrs = "A, B, C, D";
+    let defaultFDs = "A -> B\nC -> D";
+    
+    const erAttrs = localStorage.getItem('er_to_norm_attrs');
+    const erFDs = localStorage.getItem('er_to_norm_fds');
+    
+    if (erAttrs && erFDs) {
+        defaultAttrs = erAttrs;
+        defaultFDs = erFDs;
+        // Clear them so they only load once
+        localStorage.removeItem('er_to_norm_attrs');
+        localStorage.removeItem('er_to_norm_fds');
+    }
+
     container.innerHTML = `
         <div class="animate-fade-in" style="display: flex; flex-direction: column; gap: 20px;">
             <h1 style="color: var(--accent-success);">Algorithmic Normalizer</h1>
@@ -14,10 +29,10 @@ function renderUserNormalizer() {
                     <h3 style="color: var(--text-primary); margin-bottom: 12px;">Relation Definition</h3>
                     
                     <label style="color: var(--text-muted); font-size: 0.9rem;">Attributes (comma separated)</label>
-                    <input type="text" id="norm-attributes" value="A, B, C, D" style="width: 100%; padding: 10px; margin-bottom: 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-primary); border-radius: 4px;">
+                    <input type="text" id="norm-attributes" value="${defaultAttrs}" style="width: 100%; padding: 10px; margin-bottom: 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-primary); border-radius: 4px;">
                     
                     <label style="color: var(--text-muted); font-size: 0.9rem;">Functional Dependencies (one per line, use ->)</label>
-                    <textarea id="norm-fds" rows="5" style="width: 100%; padding: 10px; margin-bottom: 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-primary); border-radius: 4px; font-family: var(--font-code);">A -> B\nC -> D</textarea>
+                    <textarea id="norm-fds" rows="5" style="width: 100%; padding: 10px; margin-bottom: 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-primary); border-radius: 4px; font-family: var(--font-code);">${defaultFDs}</textarea>
                     
                     <button class="btn btn-primary" style="width: 100%;" onclick="executeNormalization()">Analyze Relation</button>
                     

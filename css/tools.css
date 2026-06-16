@@ -126,3 +126,57 @@
     color: var(--accent-warning);
     text-decoration: underline;
 }
+
+.er-entity.weak {
+    border: 3px double var(--accent-primary);
+}
+
+.er-attribute.partial {
+    text-decoration: underline dashed;
+}
+
+.er-attribute.multi {
+    border: 1px double var(--text-muted);
+    border-radius: 10px;
+    padding: 0 6px;
+    display: inline-block;
+}
+
+/* ER Inspector Sidebar */
+.er-inspector {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 1px solid var(--border-light);
+    padding: 20px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+}
+
+.er-inspector h3 {
+    color: var(--accent-success);
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 8px;
+}
+
+.er-inspector label {
+    display: block;
+    color: var(--text-muted);
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.er-inspector select, .er-inspector input[type="text"] {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.er-inspector select:focus, .er-inspector input[type="text"]:focus {
+    border-color: var(--accent-primary);
+}
